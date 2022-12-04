@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import cv2
 
+
 root = Path("/home/gaoxin/projects/SegUnet/datasets/images/DE")
 label = Path("/home/gaoxin/projects/SegUnet/datasets/labels/DE")
 
