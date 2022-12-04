@@ -17,7 +17,7 @@ model.load_state_dict(torch.load("/home/gaoxin/projects/SegUnet/MyoPS_LGE2.pth")
 model.eval()
 
 for data in val_loader:
-    slice,_,mask  = data
+    slice,mask1,mask  = data
     with torch.no_grad():
         pred = model(slice)
         pred = torch.sigmoid(pred)
@@ -25,13 +25,12 @@ for data in val_loader:
         pred[pred > 0.5] = 1
         val_class_dice = []
         for i in range(1, 4):
-            val_class_dice.append(diceCoeffv2(pred[:, i:i + 1, :], pred[:, i:i + 1, :]))
+            val_class_dice.append(diceCoeffv2(pred[:, i:i + 1, :], mask1[:, i:i + 1, :]))
     val_mean_dice = sum(val_class_dice) / 3
 
     if val_mean_dice > 0.85:
+        print(val_mean_dice)
         mask2 = np.argmax(pred.numpy().squeeze(),axis=0)
-        print(mask2.shape)
-        print(mask2)
         fig, axis = plt.subplots(1, 2, figsize=(13, 6))
         mask_ = np.ma.masked_where(mask[0] == 0, mask[0])
         mask2_ = np.ma.masked_where(mask2 == 0, mask2)
