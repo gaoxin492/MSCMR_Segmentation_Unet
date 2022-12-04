@@ -68,3 +68,5 @@ if __name__=='__main__':
     out = model(test_input)
     print(out.size())
     print(out.argmax(axis=1).shape)
+
+    
