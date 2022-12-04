@@ -22,3 +22,4 @@ class SoftDiceLoss(_Loss):
             class_dice.append(diceCoeff(y_pred[:, i:i + 1, :], y_true[:, i:i + 1, :], activation=self.activation))
         mean_dice = sum(class_dice) / len(class_dice)
         return 1 - mean_dice
+    
