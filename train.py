@@ -158,4 +158,3 @@ if __name__ == '__main__':
     Seg = Segmentation(train_loader,val_loader,100)
     model = Seg.train()
     torch.save(model.state_dict(), "/home/gaoxin/projects/SegUnet/MyoPS_LGE2.pth")
-
