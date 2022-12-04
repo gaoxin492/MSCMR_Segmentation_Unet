@@ -58,5 +58,3 @@ def diceCoeffv2(pred, gt, eps=1e-5):
     score = (2 * tp + eps) / (2 * tp + fp + fn + eps)
     return score.sum() / N
 
-
-
