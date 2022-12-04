@@ -31,7 +31,6 @@ mri = data.get_fdata()
 mask = label.get_fdata().astype(np.uint8)  # Class labels should not be handled as float64
 
 print(nib.aff2axcodes(data.affine))
-
 print(np.unique(mask,return_counts=True))
 
 fig = plt.figure()
