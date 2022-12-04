@@ -141,3 +141,5 @@ if __name__ == '__main__':
     slice, mask1, mask = train_dataset[4]
     print(np.unique(mask,return_counts=True))
     print(slice.shape, mask1.shape, mask.shape)
+
+    
